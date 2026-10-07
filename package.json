@@ -1,0 +1,28 @@
+{
+  "name": "teamflow",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Plan. Collaborate. Get Things Done.",
+  "scripts": {
+    "dev:server": "cd server && npm run dev",
+    "dev:client": "cd client && npm run dev",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "build": "cd server && npm run build && cd ../client && npm run build",
+    "db:push": "npx prisma db push --schema=./prisma/schema.prisma",
+    "db:migrate": "npx prisma migrate dev --schema=./prisma/schema.prisma",
+    "db:seed": "npx ts-node prisma/seed.ts",
+    "db:studio": "npx prisma studio --schema=./prisma/schema.prisma",
+    "test": "cd server && npm run test"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "prisma": "^5.19.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.19.1",
+    "@types/bcryptjs": "^2.4.6",
+    "bcryptjs": "^3.0.3"
+  }
+}
